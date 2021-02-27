@@ -4,7 +4,7 @@
       <div class="group relative">
         <img
           class="w-full md:w-96 block rounded"
-          src="https://upload.wikimedia.org/wikipedia/en/f/f1/Tycho_-_Epoch.jpg"
+          :src="nowPlaying.item.album.images[1].url"
           alt=""
         />
         <div
@@ -29,9 +29,9 @@
         </div>
       </div>
       <div class="p-5 flex justify-between">
-        <div class="">
-          <h3 class="text-white text-lg">Epoch</h3>
-          <p class="text-gray-400">Tycho</p>
+        <div>
+          <h3 class="text-white text-lg">{{ nowPlaying.item.name }}</h3>
+          <p class="text-gray-400">{{ nowPlaying.item.artists[0].name }}</p>
         </div>
         <Clock />
       </div>
@@ -40,5 +40,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    nowPlaying: {
+      type: Object,
+      required: true,
+    },
+  },
+}
 </script>
