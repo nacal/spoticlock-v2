@@ -6,5 +6,7 @@ module.exports = {
     'stylelint-prettier/recommended',
   ],
   plugins: [],
-  rules: {},
+  rules: {
+    'scss/at-rule-no-unknown': [null],
+  },
 }
