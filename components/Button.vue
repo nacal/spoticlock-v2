@@ -12,7 +12,6 @@
     >
       Start
     </button>
-    <p>{{ nowPlaying }}</p>
   </div>
 </template>
 
@@ -23,10 +22,9 @@ export default {
   data() {
     return {
       nowPlaying: null,
-      query: this.$route.query,
     }
   },
-  created() {
+  beforeCreate() {
     if (this.$route.hash) {
       this.$router.push(this.$route.fullPath.replace('#', '?'))
     }
@@ -54,7 +52,8 @@ export default {
         'https://api.spotify.com/v1/me/player/currently-playing?market=JP'
       const data = {
         headers: {
-          Authorization: this.query.token_type + ' ' + this.query.access_token,
+          Authorization:
+            this.$route.query.token_type + ' ' + this.$route.query.access_token,
         },
         data: {},
       }
@@ -64,6 +63,7 @@ export default {
           .get(endpoint, data)
           .then((res) => {
             self.nowPlaying = res.data
+            self.$parent.nowPlaying = res.data
           })
           .catch(() => {})
       }
