@@ -28,9 +28,12 @@
           </button>
         </div>
       </div>
-      <div class="p-5">
-        <h3 class="text-white text-lg">Epoch</h3>
-        <p class="text-gray-400">Tycho</p>
+      <div class="p-5 flex justify-between">
+        <div class="">
+          <h3 class="text-white text-lg">Epoch</h3>
+          <p class="text-gray-400">Tycho</p>
+        </div>
+        <Clock />
       </div>
     </div>
   </section>
