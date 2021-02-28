@@ -1,42 +1,43 @@
 <template>
-  <section class="w-full md:w-96">
-    <div class="bg-gray-900 shadow-lg rounded p-3">
-      <div class="group relative">
+  <article class="max-w-full md:w-96">
+    <div v-if="nowPlaying != ''" class="bg-gray-900 shadow-lg rounded p-3">
+      <div class="relative">
         <img
-          class="w-full md:w-96 block rounded"
+          class="max-w-full md:w-96 block rounded"
           :src="nowPlaying.item.album.images[1].url"
           alt=""
         />
-        <div
-          class="absolute bg-black rounded bg-opacity-0 group-hover:bg-opacity-60 w-full h-full top-0 flex items-center group-hover:opacity-100 transition justify-evenly"
-        >
-          <button
-            class="hover:scale-110 text-white opacity-0 transform translate-y-3 group-hover:translate-y-0 group-hover:opacity-100 transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
-              fill="currentColor"
-              class="bi bi-play-circle-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"
-              />
-            </svg>
-          </button>
-        </div>
       </div>
       <div class="p-5 flex justify-between">
-        <div>
-          <h3 class="text-white text-lg">{{ nowPlaying.item.name }}</h3>
-          <p class="text-gray-400">{{ nowPlaying.item.artists[0].name }}</p>
+        <div class="w-32 md:w-3/5">
+          <h3 class="text-white text-lg truncate">
+            {{ nowPlaying.item.name }}
+          </h3>
+          <p class="text-gray-400 truncate">
+            {{ nowPlaying.item.artists[0].name }}
+          </p>
         </div>
-        <Clock />
+        <Clock class="md:w-2/5" />
       </div>
     </div>
-  </section>
+
+    <div v-else class="bg-gray-900 shadow-lg rounded p-3">
+      <div class="relative">
+        <img
+          class="w-full md:w-96 block rounded"
+          src="https://upload.wikimedia.org/wikipedia/en/f/f1/Tycho_-_Epoch.jpg"
+          alt=""
+        />
+      </div>
+      <div class="p-5 flex justify-between">
+        <div class="w-32 md:w-3/5">
+          <h3 class="text-white text-lg truncate">Not Found.</h3>
+          <p class="text-gray-400 truncate">ERROR</p>
+        </div>
+        <Clock class="md:w-2/5" />
+      </div>
+    </div>
+  </article>
 </template>
 
 <script>
