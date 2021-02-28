@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex justify-center">
     <button
       class="btn-primary bg-gray-900 hover:bg-gray-800 text-white mr-2"
       @click="spotifyLogin()"
@@ -19,11 +19,6 @@
 import axios from 'axios'
 
 export default {
-  data() {
-    return {
-      nowPlaying: null,
-    }
-  },
   beforeCreate() {
     if (this.$route.hash) {
       this.$router.push(this.$route.fullPath.replace('#', '?'))
@@ -62,13 +57,12 @@ export default {
         axios
           .get(endpoint, data)
           .then((res) => {
-            self.nowPlaying = res.data
             self.$parent.nowPlaying = res.data
           })
           .catch(() => {})
       }
       fetchData()
-      // setInterval(fetchData, 1000)
+      setInterval(fetchData, 1000)
     },
   },
 }
@@ -76,6 +70,6 @@ export default {
 
 <style lang="postcss" scoped>
 .btn-primary {
-  @apply py-2 w-32 shadow-md no-underline rounded-full text-sm transition duration-500 font-bold;
+  @apply py-2 w-32 shadow-md no-underline rounded-full text-sm transition duration-500;
 }
 </style>
