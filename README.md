@@ -1,20 +1,18 @@
-# spoticlock-v2
+# JAMstack Blog Project
 
-## Build Setup
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-```bash
-# install dependencies
-$ yarn install
+![SpotiClock image](https://user-images.githubusercontent.com/55532835/109494120-cf9ea900-7ad0-11eb-9791-06430a414130.png)
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+> [SpotiClock](https://spoticlock-v2.vercel.app/)
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+## Overview
 
-# generate static project
-$ yarn generate
-```
+Spotify APIを利用してNowPlayingを取得し再生中のアートワーク・アーティスト名・曲名を表示する。
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Assets
+- [Spotify API](https://developer.spotify.com/documentation/web-api/)
+- [Vue.js](https://vuejs.org/)
+  - [Nuxt.js](https://nuxtjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vercel](https://app.netlify.com/)
