@@ -15,7 +15,7 @@
       <MusicPlayerCard :now-playing="nowPlaying" />
     </main>
     <footer class="text-center">
-      <small lang="en">&copy; 2021 hikaru nakata</small>
+      <small lang="en">&copy; 2021 nacal</small>
     </footer>
   </div>
 </template>
